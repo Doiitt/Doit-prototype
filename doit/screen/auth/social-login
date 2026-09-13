@@ -1,0 +1,201 @@
+import { useState } from "react";
+import { Back } from "./Back";
+import image from "./image.svg";
+import vector from "./vector.svg";
+import vector2 from "./vector-2.svg";
+import vector3 from "./vector-3.svg";
+import vector4 from "./vector-4.svg";
+import vector5 from "./vector-5.svg";
+import vector6 from "./vector-6.svg";
+import vector7 from "./vector-7.svg";
+
+const socialLoginOptions = [
+  {
+    id: "kakao",
+    label: "카카오로 시작하기",
+    provider: "Kakao",
+    backgroundClass: "bg-[#fee500]",
+    borderClass: "",
+    textClass: "text-[#191919]",
+    icon: vector,
+    iconClass: "absolute w-[96.67%] h-[92.50%] top-[7.50%] left-[3.33%]",
+  },
+  {
+    id: "google",
+    label: "Google로 시작하기",
+    provider: "Google",
+    backgroundClass: "bg-white",
+    borderClass: "border border-solid border-[#e0e0e0]",
+    textClass: "text-[#101828]",
+    icon: image,
+    iconClass: "absolute w-[96.67%] h-[96.67%] top-[3.33%] left-[3.33%]",
+  },
+  {
+    id: "email",
+    label: "이메일로 시작하기",
+    provider: "Email",
+    backgroundClass: "bg-[#f7f9fc]",
+    borderClass: "",
+    textClass: "text-[#101828]",
+    icon: vector2,
+    iconClass: "absolute w-[96.67%] h-[88.33%] top-[11.67%] left-[3.33%]",
+  },
+];
+
+export const ScreenAuthSocial = (): JSX.Element => {
+  const [announcement, setAnnouncement] = useState("");
+
+  const handleBack = () => {
+    if (typeof window !== "undefined" && window.history.length > 1) {
+      window.history.back();
+    }
+  };
+
+  const handleLogin = (provider: string) => {
+    setAnnouncement(`${provider} 로그인으로 이동합니다.`);
+
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("doit:social-login", {
+          detail: { provider },
+        }),
+      );
+    }
+  };
+
+  return (
+    <div className="flex min-h-screen flex-col items-start relative bg-white">
+      <header className="flex h-[59px] items-center justify-between px-6 py-0 relative self-stretch w-full bg-white">
+        <div className="relative w-[52px] h-5 font-DOIT-small font-[number:var(--DOIT-small-font-weight)] text-black text-[length:var(--DOIT-small-font-size)] text-center tracking-[var(--DOIT-small-letter-spacing)] leading-[var(--DOIT-small-line-height)] whitespace-nowrap [font-style:var(--DOIT-small-font-style)]">
+          9:41
+        </div>
+        <div
+          className="relative w-[68px] h-5"
+          aria-label="휴대전화 상태"
+          role="img"
+        >
+          <img
+            className="absolute w-[99.12%] h-[92.00%] top-[8.00%] left-0"
+            alt=""
+            aria-hidden="true"
+            src={vector3}
+          />
+          <img
+            className="absolute w-[65.88%] h-[84.00%] top-[16.00%] left-[34.12%]"
+            alt=""
+            aria-hidden="true"
+            src={vector4}
+          />
+          <img
+            className="absolute w-[34.85%] h-[78.50%] top-[21.50%] left-[65.15%]"
+            alt=""
+            aria-hidden="true"
+            src={vector5}
+          />
+          <img
+            className="absolute w-[30.88%] h-[65.00%] top-[35.00%] left-[69.12%]"
+            alt=""
+            aria-hidden="true"
+            src={vector6}
+          />
+          <img
+            className="absolute w-[4.04%] h-[55.00%] top-[45.00%] left-[95.96%]"
+            alt=""
+            aria-hidden="true"
+            src={vector7}
+          />
+        </div>
+        <div
+          className="absolute top-3 left-[calc(50.00%_-_57px)] w-[114px] h-[31px] bg-[#020203] rounded-[999px]"
+          aria-hidden="true"
+        />
+      </header>
+      <nav
+        className="flex flex-col items-start px-6 py-2 relative self-stretch w-full flex-[0_0_auto]"
+        aria-label="페이지 탐색"
+      >
+        <div className="flex h-11 items-center gap-2 relative self-stretch w-full">
+          <div className="flex w-[116.5px] h-11 items-center justify-center relative">
+            <button
+              type="button"
+              onClick={handleBack}
+              className="flex w-11 h-11 items-center justify-center rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3b5bff]"
+              aria-label="이전 페이지로 돌아가기"
+            >
+              <Back className="!relative !w-6 !h-6" />
+            </button>
+          </div>
+          <h1 className="flex-1 font-DOIT-heading font-[number:var(--DOIT-heading-font-weight)] text-[length:var(--DOIT-heading-font-size)] leading-[var(--DOIT-heading-line-height)] relative text-[#101828] tracking-[var(--DOIT-heading-letter-spacing)] [font-style:var(--DOIT-heading-font-style)]">
+            간편 로그인
+          </h1>
+          <div className="relative w-11 h-11" aria-hidden="true" />
+        </div>
+      </nav>
+      <main className="flex flex-col items-start relative flex-1 self-stretch w-full grow">
+        <section
+          className="gap-10 px-6 py-8 flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]"
+          aria-labelledby="social-login-welcome"
+        >
+          <div className="gap-3 flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]">
+            <p className="relative self-stretch mt-[-1.00px] font-DOIT-small font-[number:var(--DOIT-small-font-weight)] text-[#3b5bff] text-[length:var(--DOIT-small-font-size)] tracking-[var(--DOIT-small-letter-spacing)] leading-[var(--DOIT-small-line-height)] [font-style:var(--DOIT-small-font-style)]">
+              START IN SECONDS
+            </p>
+            <h2
+              id="social-login-welcome"
+              className="self-stretch font-DOIT-title-1 font-[number:var(--DOIT-title-1-font-weight)] text-[length:var(--DOIT-title-1-font-size)] leading-[var(--DOIT-title-1-line-height)] relative text-[#101828] tracking-[var(--DOIT-title-1-letter-spacing)] [font-style:var(--DOIT-title-1-font-style)]"
+            >
+              DOIT에 오신 것을 환영해요
+            </h2>
+            <p className="relative self-stretch font-DOIT-body font-[number:var(--DOIT-body-font-weight)] text-[#475467] text-[length:var(--DOIT-body-font-size)] tracking-[var(--DOIT-body-letter-spacing)] leading-[var(--DOIT-body-line-height)] [font-style:var(--DOIT-body-font-style)]">
+              간편한 소셜 로그인으로 계획을 실행해보세요.
+            </p>
+          </div>
+          <div
+            className="gap-3 flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]"
+            aria-label="로그인 방법"
+          >
+            {socialLoginOptions.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                onClick={() => handleLogin(option.provider)}
+                className={`flex h-14 items-center justify-center gap-4 px-4 py-0 relative self-stretch w-full ${option.backgroundClass} rounded-2xl ${option.borderClass} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3b5bff]`}
+              >
+                <span
+                  className="flex w-6 h-6 items-center justify-center relative"
+                  aria-hidden="true"
+                >
+                  <span className="relative w-5 h-5">
+                    <img
+                      className={option.iconClass}
+                      alt=""
+                      aria-hidden="true"
+                      src={option.icon}
+                    />
+                  </span>
+                </span>
+                <span
+                  className={`${option.textClass} relative flex-1 font-DOIT-body-large font-[number:var(--DOIT-body-large-font-weight)] text-[length:var(--DOIT-body-large-font-size)] text-center tracking-[var(--DOIT-body-large-letter-spacing)] leading-[var(--DOIT-body-large-line-height)] [font-style:var(--DOIT-body-large-font-style)]`}
+                >
+                  {option.label}
+                </span>
+              </button>
+            ))}
+          </div>
+        </section>
+      </main>
+      <footer className="flex flex-col items-start gap-4 pt-4 pb-[58px] px-6 relative self-stretch w-full flex-[0_0_auto] bg-[#f7f9fc]">
+        <p className="relative self-stretch mt-[-1.00px] font-DOIT-small font-[number:var(--DOIT-small-font-weight)] text-[#98a2b3] text-[length:var(--DOIT-small-font-size)] text-center tracking-[var(--DOIT-small-letter-spacing)] leading-[var(--DOIT-small-line-height)] [font-style:var(--DOIT-small-font-style)]">
+          계속하면 이용약관 및 개인정보처리방침에 동의합니다.
+        </p>
+      </footer>
+      <div
+        className="absolute top-[830px] left-[130px] w-[134px] h-[5px] bg-[#101828] rounded-[999px]"
+        aria-hidden="true"
+      />
+      <p className="sr-only" role="status" aria-live="polite">
+        {announcement}
+      </p>
+    </div>
+  );
+};
