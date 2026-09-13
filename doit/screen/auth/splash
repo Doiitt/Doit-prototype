@@ -1,0 +1,99 @@
+import image from "./image.svg";
+import vector from "./vector.svg";
+import vector2 from "./vector-2.svg";
+import vector3 from "./vector-3.svg";
+import vector4 from "./vector-4.svg";
+import vector5 from "./vector-5.svg";
+
+export const ScreenAuthSplash = (): JSX.Element => {
+  return (
+    <main className="flex min-h-screen flex-col items-start relative bg-[#3b5bff] overflow-hidden">
+      <header
+        className="flex h-[59px] items-center justify-between px-6 py-0 relative self-stretch w-full"
+        aria-label="Device status"
+      >
+        <time
+          className="relative w-[52px] h-5 font-DOIT-small font-[number:var(--DOIT-small-font-weight)] text-white text-[length:var(--DOIT-small-font-size)] text-center tracking-[var(--DOIT-small-letter-spacing)] leading-[var(--DOIT-small-line-height)] whitespace-nowrap [font-style:var(--DOIT-small-font-style)]"
+          dateTime="09:41"
+        >
+          9:41
+        </time>
+        <div className="relative w-[68px] h-5" aria-hidden="true">
+          <img
+            className="absolute w-[99.12%] h-[92.00%] top-[8.00%] left-0"
+            alt=""
+            src={image}
+          />
+          <img
+            className="absolute w-[65.88%] h-[84.00%] top-[16.00%] left-[34.12%]"
+            alt=""
+            src={vector2}
+          />
+          <img
+            className="absolute w-[34.85%] h-[78.50%] top-[21.50%] left-[65.15%]"
+            alt=""
+            src={vector3}
+          />
+          <img
+            className="absolute w-[30.88%] h-[65.00%] top-[35.00%] left-[69.12%]"
+            alt=""
+            src={vector4}
+          />
+          <img
+            className="absolute w-[4.04%] h-[55.00%] top-[45.00%] left-[95.96%]"
+            alt=""
+            src={vector5}
+          />
+        </div>
+        <div
+          className="absolute top-3 left-[calc(50.00%_-_57px)] w-[114px] h-[31px] bg-[#020203] rounded-[999px]"
+          aria-hidden="true"
+        />
+      </header>
+      <section
+        className="flex flex-col items-center justify-center gap-6 relative flex-1 self-stretch w-full grow"
+        aria-labelledby="app-name"
+      >
+        <div className="inline-flex flex-col items-center gap-4 relative flex-[0_0_auto]">
+          <div
+            className="flex w-20 h-20 items-center justify-center relative bg-white rounded-3xl"
+            aria-hidden="true"
+          >
+            <span className="relative w-fit [font-family:'Noto_Sans_KR-Bold',Helvetica] font-bold text-[#3b5bff] text-[42px] tracking-[0] leading-[normal] whitespace-nowrap">
+              D
+            </span>
+          </div>
+          <h1
+            id="app-name"
+            className="relative w-fit [font-family:'Noto_Sans_KR-Bold',Helvetica] font-bold text-white text-4xl tracking-[0.36px] leading-10 whitespace-nowrap"
+          >
+            DOIT
+          </h1>
+        </div>
+        <p className="relative w-fit opacity-80 font-DOIT-caption font-[number:var(--DOIT-caption-font-weight)] text-[#eef1ff] text-[length:var(--DOIT-caption-font-size)] tracking-[var(--DOIT-caption-letter-spacing)] leading-[var(--DOIT-caption-line-height)] whitespace-nowrap [font-style:var(--DOIT-caption-font-style)]">
+          PLAN / CONNECT / DO
+        </p>
+      </section>
+      <footer className="flex flex-col items-center gap-4 pt-0 pb-16 px-0 relative self-stretch w-full flex-[0_0_auto]">
+        <div
+          className="flex flex-col w-6 h-6 items-center justify-center relative"
+          role="status"
+          aria-label="Loading"
+        >
+          <div className="relative w-5 h-5">
+            <img
+              className="absolute w-[96.67%] h-[96.67%] top-[3.33%] left-[3.33%]"
+              alt=""
+              src={vector}
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </footer>
+      <div
+        className="absolute top-[830px] left-[130px] w-[134px] h-[5px] bg-white rounded-[999px]"
+        aria-hidden="true"
+      />
+    </main>
+  );
+};
